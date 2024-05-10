@@ -23,7 +23,10 @@ app.get("/", function (req, res) {
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
-
+// your first API endpoint... 
+app.get("/api/:date", function (req, res) {
+  res.json({unix: new Date(), utc: new Date(req.params.date)});
+});
 
 
 // Listen on port set in environment variable or default to 3000
