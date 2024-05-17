@@ -35,12 +35,16 @@ app.get("/api/:date", function (req, res) {
   }
 
   let date = new Date(param);
-  
-  
-  let unix = date.getTime();
-  let utc = date.toUTCString();
+  console.log(date);
+  if(date == 'Invalid Date'){
+    res.json({error : "Invalid Date"});
+  }else{
+    res.json({unix: date.getTime(), utc: date.toUTCString()});
+  }
+  //let unix = date.getTime();
+  //let utc = date.toUTCString();
 
-  res.json({unix: unix, utc: utc});
+  //res.json({unix: unix, utc: utc});
 });
 app.get("/api/", function (req, res) {
 
